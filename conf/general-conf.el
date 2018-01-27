@@ -18,7 +18,6 @@
 
 ;; Saving Emacs Sessions
 (desktop-save-mode 1)
-(desktop-read)
 
 ;; Configured in 2015/9/10  --22:36
 (setq-default indent-tabs-mode  nil)
