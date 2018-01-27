@@ -20,6 +20,7 @@
 ;;; ECB customize
 ;;; Ref: http://ecb.sourceforge.net/docs/Programming-special-windows.html#Programming-special-windows
 ;;;      http://blog.yxwang.me/2010/02/bind-cscope-to-ecb/
+;;;      http://ecb.sourceforge.net/docs/Standard-activation.html
 (require 'ecb)
 (eval-after-load 'ecb
   '(progn
