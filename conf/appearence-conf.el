@@ -3,6 +3,7 @@
 ;;; Added at 2015/9/3  --14:01
 
 ;;; Code:
+
 (setq inhibit-startup-message t)        ;关闭欢迎页面
 (add-hook 'emacs-startup-hook
           (lambda ()
