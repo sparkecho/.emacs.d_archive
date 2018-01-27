@@ -2,11 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Configuration of Load Path
+;; Added at 2016/4/16 -- 23:30
+(add-to-list 'load-path "~/.emacs.d/conf")
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;;(package-initialize)
+(package-initialize)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -17,7 +22,7 @@
  '(ecb-options-version "2.50")
  '(package-selected-packages
    (quote
-    (org-preview-html xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
+    (slime company esup cnfonts org-preview-html xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -26,15 +31,14 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "Book" :slant normal :weight normal :height 110 :width normal)))))
 
-;; 默认字体
-;; (set-frame-font "DejaVu Sans Mono-11")
+;; 使用 cnfonts 管理字体
+;; (require 'cnfonts)
 
 
-;; Configuration of Load Path
-;; Added at 2016/4/16 -- 23:30
-(add-to-list 'load-path "~/.emacs.d/conf")
-(add-to-list 'load-path "~/.emacs.d/plugins")
-
+;; ;; Configuration of Load Path
+;; ;; Added at 2016/4/16 -- 23:30
+;; (add-to-list 'load-path "~/.emacs.d/conf")
+;; (add-to-list 'load-path "~/.emacs.d/plugins")
 
 
 ;; Configuration of Package (mainly Elpa/Melpa)
