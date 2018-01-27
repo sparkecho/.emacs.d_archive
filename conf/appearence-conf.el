@@ -10,13 +10,18 @@
             (cd default-directory)
             (eshell)))
 
+(require 'cnfonts)                      ;管理字体
+(eval-after-load 'cnfonts
+  '(progn (cnfonts-enable)))
+
 (tool-bar-mode   0)                     ;关闭Emacs工具栏
 (scroll-bar-mode 0)                     ;隐藏滚动条
 (menu-bar-mode   0)                     ;关闭Emacs菜单栏
 (toggle-frame-maximized)                ;窗口最大化
 
-(global-linum-mode t)                   ;全局显示行号
+(global-linum-mode  t)                  ;全局显示行号
 (column-number-mode t)                  ;显示列号
+(show-paren-mode    t)                  ;显示括号匹配
 
 (mouse-avoidance-mode 'animate)         ;光标靠近鼠标指针时，让鼠标指针自动让开
 
@@ -33,7 +38,7 @@
     ((lambda (a ab)
        (set-frame-parameter (selected-frame) 'alpha (list a ab))
        (add-to-list 'default-frame-alist (cons 'alpha (list a ab))))
-	 (car h) (car (cdr h)))
+     (car h) (car (cdr h)))
     (setq alpha-list (cdr (append alpha-list (list h))))))
 
 ;; Full screen
