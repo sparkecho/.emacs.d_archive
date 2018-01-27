@@ -1,0 +1,13 @@
+# Blacklist everything
+*
+# Whitelist specific directories
+!conf/
+!eshell/
+!plugins/
+# Whitelist specific type of files
+!.gitignore
+!README.md
+!*.el
+!eshell/**/alias
+# Blacklist specific files
+srecode-map.el
