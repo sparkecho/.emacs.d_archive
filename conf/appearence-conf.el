@@ -42,6 +42,8 @@
   (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                          '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
 
+(fullscreen)
+
 ;; Highlight active buffer (2018/1/21 -- 23:57)
 (require 'highlight-focus)
 ;; set the background of the mode-line
