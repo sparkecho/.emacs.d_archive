@@ -54,7 +54,7 @@
 ;; set the background of the mode-line
 (setq highlight-focus:face 'mode-line
       highlight-focus:face-property :background
-      highlight-focus:face-property-value "wheat")
+      highlight-focus:face-property-value "medium turquoise")
 
 
 (provide 'appearence-conf)
