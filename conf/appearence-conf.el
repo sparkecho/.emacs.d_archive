@@ -4,6 +4,9 @@
 
 ;;; Code:
 
+(load-theme 'spacemacs-light t t)
+(enable-theme 'spacemacs-light)
+
 (setq inhibit-startup-message t)        ;关闭欢迎页面
 (add-hook 'emacs-startup-hook
           (lambda ()
