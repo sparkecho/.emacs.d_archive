@@ -3,7 +3,9 @@
 ;;; Added at
 
 ;;; Code:
-(org-preview-html-mode 1)
+(eval-after-load 'org
+  '(progn
+     (define-key org-mode-map (kbd "C-c C-c") 'org-preview-html-mode)))
 
 (provide 'org-conf)
 ;;; org-conf.el ends here
