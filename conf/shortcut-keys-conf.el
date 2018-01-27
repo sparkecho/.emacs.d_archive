@@ -8,7 +8,7 @@
 (setq tab-always-indent 'complete)
 
 ;; 切换 ECB 模式激活状态
-(global-set-key [f4] #'ecb-activate)
+(global-set-key [f4] #'ecb-minor-mode)
 
 ;; Configured at 2015/9/10  --22:52
 (global-set-key [f5] #'compile)
