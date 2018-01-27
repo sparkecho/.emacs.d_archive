@@ -17,16 +17,15 @@
 (setq-default tab-width 4)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Jumping
-;; (require 'xcscope)
-
-
 ;;; ECB customize
 ;;; Ref: http://ecb.sourceforge.net/docs/Programming-special-windows.html#Programming-special-windows
 ;;;      http://blog.yxwang.me/2010/02/bind-cscope-to-ecb/
+(require 'xcscope)
+(add-hook 'ecb 'cscope-minor-mode)
+
+(require 'ecb)
 (eval-after-load 'ecb
   '(progn
-     (require 'xcscope)
      (defvar ecb-cscope-buffer-name "*cscope*")
 
      (defecb-window-dedicator-to-ecb-buffer ecb-set-cscope-buffer ecb-cscope-buffer-name nil
@@ -112,13 +111,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Debugging
-
-(eval-after-load 'gdb
-  '(progn
-     ;; Use gdb-many-windows by default
-     (setq gdb-many-windows t)
-     ;; Non-nil means display source file containing the main routine at startup
-     (setq gdb-show-main t)))
+;; (require 'gdb)
+;; (eval-after-load 'gdb
+;;   '(progn
+;;      ;; Use gdb-many-windows by default
+;;      (setq gdb-many-windows t)
+;;      ;; Non-nil means display source file containing the main routine at startup
+;;      (setq gdb-show-main t)))
+(add-hook 'gdb 'gdb-many-windows)
 
 
 (provide 'cc-conf)
