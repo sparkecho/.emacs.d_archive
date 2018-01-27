@@ -13,7 +13,7 @@
 (tool-bar-mode   0)                     ;关闭Emacs工具栏
 (scroll-bar-mode 0)                     ;隐藏滚动条
 (menu-bar-mode   0)                     ;关闭Emacs菜单栏
-(maximize-window)                       ;窗口最大化
+(toggle-frame-maximized)                ;窗口最大化
 
 (global-linum-mode t)                   ;全局显示行号
 (column-number-mode t)                  ;显示列号
