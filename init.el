@@ -6,46 +6,28 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;;(package-initialize)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
  '(column-number-mode t)
- '(custom-enabled-themes (quote (dichromacy)))
  '(ecb-options-version "2.50")
  '(package-selected-packages
    (quote
-    (company-irony-c-headers srefactor flycheck slime slime-company xcscope company-irony flycheck-irony irony-eldoc irony company company-auctex company-c-headers git-commit magit-popup yasnippet magit geiser cmake-mode glsl-mode smex password-mode csharp-mode markdown-mode eshell-did-you-mean matlab-mode highlight-quoted helm ghci-completion flycheck-clangcheck ess elisp-slime-nav ecb common-lisp-snippets auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex auctex ac-slime ac-python ac-octave ac-js2 ac-html ac-geiser ac-clang 2048-game)))
- '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++11))))
- '(show-paren-mode t))
-
-
+    (xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "Book" :slant normal :weight normal :height 110 :width normal)))))
 
-;; -----------------------------------------------------------------
-;;;; (set-default-font "courier 10 pitch-11")
-;; (set-fontset-font "fontset-default"
-;; 'han '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-;; (set-fontset-font "fontset-default"
-;; 'cjk-misc '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-;; (set-fontset-font "fontset-default"
-;; 'bopomofo '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-;; (set-fontset-font "fontset-default"
-;; 'gb18030 '("WenQuanYi Bitmap Song". "unicode-bmp"))
-;; (set-fontset-font "fontset-default"
-;; 'symbol '("WenQuanYi Bitmap Song". "unicode-bmp"))
-;;;; (add-to-list 'default-frame-alist '(font . "courier 10 pitch-11"))
-;; -----------------------------------------------------------------
+;; 默认字体
+;; (set-frame-font "DejaVu Sans Mono-11")
 
 
 ;; Configuration of Load Path
@@ -75,12 +57,20 @@
 (require 'general-conf)
 
 
+;; Configuration of ecb 代码浏览设置
+;; Added at 2016/5/23 -- 19:22
+(require 'ecb-conf)
+
+
+(require 'markdown-conf)
+
+
 ;; Configuration of the Development Enviornment of Common Lisp
 ;; Added at 2016/4/17 -- 11:00
 (require 'common-lisp-conf)
 
 
-;; Configuration of C language
+;; Configuration of C/C++ language
 ;; Added at 2016/4/17 -- 11:03
 (require 'cc-conf)
 
@@ -114,26 +104,15 @@
 (require 'auctex-conf)
 
 
-;; Configuration of yasnippet
-;; Added at 2016/4/16 -- 13:30
-(require 'yasnippet)
-(yas-global-mode 1)
-
-
 ;; Configuration of auto-complete
 ;; Added at 2016/4/16 -- 16:45
 ;; Deleted at 2018/1/11 -- 1:55
 ;; (require 'auto-complete-conf)
 
 
-;; Configuration of ecb 代码浏览设置
-;; Added at 2016/5/23 -- 19:22
-(require 'ecb-conf)
-
-
 ;; Configuration of esup
 ;; Added at 2016/4/17 -- 13:08
-(require 'esup-conf)
+;; (require 'esup-conf)
 
 
 ;; Configuration of helm
@@ -144,6 +123,4 @@
 ;; (require 'helm-conf)
 
 
-;; Saving Emacs Sessions
-(desktop-save-mode 1)
 ;;; init.el ends here
