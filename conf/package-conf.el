@@ -5,16 +5,9 @@
 ;;; Code:
 
 (require 'package)
-;;(autoload 'package "package" "package" t)
 
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa" . "https://melpa.org/packages/")))
-;; (add-to-list 'package-archives
-;;  	     '("popkit" . "http://elpa.popkit.org/packages/")) ;国内的 Elpa 镜像站
-
-(setq package-archives
-      '(("popkit" . "http://elpa.popkit.org/packages/"))) ;国内的 Elpa 镜像站
+(setq package-archives '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "https://elpa.emacs-china.org/melpa/")))
 
 ;; (eval-after-load "package" '(package-initialize))
 (package-initialize)
