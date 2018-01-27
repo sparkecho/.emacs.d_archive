@@ -31,9 +31,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "Book" :slant normal :weight normal :height 110 :width normal)))))
 
-;; 使用 cnfonts 管理字体
-;; (require 'cnfonts)
-
 
 ;; ;; Configuration of Load Path
 ;; ;; Added at 2016/4/16 -- 23:30
@@ -64,6 +61,11 @@
 ;; Configuration of ecb 代码浏览设置
 ;; Added at 2016/5/23 -- 19:22
 (require 'ecb-conf)
+
+
+;; Configuration of gdb Debug tool
+;; Added at 2018/1/27 -- 19:49
+(require 'gdb-conf)
 
 
 (require 'markdown-conf)
