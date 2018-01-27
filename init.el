@@ -17,7 +17,7 @@
  '(ecb-options-version "2.50")
  '(package-selected-packages
    (quote
-    (xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
+    (org-preview-html xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -63,6 +63,7 @@
 
 
 (require 'markdown-conf)
+(require 'org-conf)
 
 
 ;; Configuration of the Development Enviornment of Common Lisp
