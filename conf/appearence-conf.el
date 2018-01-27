@@ -13,6 +13,7 @@
 (tool-bar-mode   0)                     ;关闭Emacs工具栏
 (scroll-bar-mode 0)                     ;隐藏滚动条
 (menu-bar-mode   0)                     ;关闭Emacs菜单栏
+(maximize-window)                       ;窗口最大化
 
 (global-linum-mode t)                   ;全局显示行号
 (column-number-mode t)                  ;显示列号
@@ -42,7 +43,6 @@
   (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                          '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
 
-(fullscreen)
 
 ;; Highlight active buffer (2018/1/21 -- 23:57)
 (require 'highlight-focus)
