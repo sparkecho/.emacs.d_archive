@@ -51,8 +51,10 @@
                         (ecb-set-cscope-buffer))
      (setq ecb-layout-name "my-cscope-layout")
      (setq ecb-windows-width 0.22)
-     ;; Disable buckets so that history buffer can display more entries
-     (setq ecb-history-make-buckets 'never)))
+     ;; Disable buckets so that history buffer can display more entries.
+     (setq ecb-history-make-buckets 'never)
+     ;; When ecb is deactivate kill cscope buffer.
+     (add-hook 'ecb-deactivate-hook (lambda () (kill-buffer ecb-cscope-buffer-name)))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
