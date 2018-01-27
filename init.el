@@ -20,16 +20,11 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(ecb-options-version "2.50")
+ '(ecb-source-path (quote (("/" "/"))))
  '(package-selected-packages
    (quote
-    (slime company esup cnfonts org-preview-html xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
+    (moe-theme spacemacs-theme slime company esup cnfonts org-preview-html xcscope srefactor smex slime-company password-mode matlab-mode markdown-mode magit irony-eldoc highlight-quoted helm glsl-mode ghci-completion geiser flycheck-irony flycheck-clangcheck ess elisp-slime-nav ecb company-irony-c-headers company-irony company-c-headers company-auctex common-lisp-snippets cmake-mode auto-complete-nxml auto-complete-clang auto-complete-c-headers auto-complete-auctex 2048-game)))
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "Book" :slant normal :weight normal :height 110 :width normal)))))
 
 
 ;; ;; Configuration of Load Path
