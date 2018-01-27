@@ -109,17 +109,5 @@
 ;; (define-key c++-mode-map (kbd "C-c RET") 'srefactor-refactor-at-point)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Debugging
-;; (require 'gdb)
-;; (eval-after-load 'gdb
-;;   '(progn
-;;      ;; Use gdb-many-windows by default
-;;      (setq gdb-many-windows t)
-;;      ;; Non-nil means display source file containing the main routine at startup
-;;      (setq gdb-show-main t)))
-(add-hook 'gdb 'gdb-many-windows)
-
-
 (provide 'cc-conf)
 ;;; cc-conf.el ends here
