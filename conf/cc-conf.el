@@ -20,12 +20,12 @@
 ;;; ECB customize
 ;;; Ref: http://ecb.sourceforge.net/docs/Programming-special-windows.html#Programming-special-windows
 ;;;      http://blog.yxwang.me/2010/02/bind-cscope-to-ecb/
-(require 'xcscope)
-(add-hook 'ecb 'cscope-minor-mode)
-
 (require 'ecb)
 (eval-after-load 'ecb
   '(progn
+     ;; Active cscope-minor-mode after ecb activate.
+     (add-hook 'ecb-activate-hook 'cscope-minor-mode)
+
      (defvar ecb-cscope-buffer-name "*cscope*")
 
      (defecb-window-dedicator-to-ecb-buffer ecb-set-cscope-buffer ecb-cscope-buffer-name nil
