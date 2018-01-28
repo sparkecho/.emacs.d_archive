@@ -81,9 +81,6 @@
 ;; (global-set-key (kbd ")") (lambda () (interactive) (insert "]")))
 
 
-;; Configuration of SLIME
-;; (global-set-key "\C-cs" 'slime-selector)
-
 ;; Configuration of refill-mode
 ;; 自动折行
 (global-set-key (kbd "C-c q") 'refill-mode)
@@ -106,6 +103,22 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Configuration of Rename the file in current buffer
+;; Reference: https://stackoverflow.com/questions/17829619/rename-current-buffer-and-related-file-in-emacs
+(defun rename-file-and-buffer ()
+  "Rename the current buffer and file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer is not visiting a file!")
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t (rename-file filename new-name t)
+            (set-visited-file-name new-name t t)))))))
+
+(global-set-key (kbd "C-c r")  'rename-file-and-buffer)
 
 
 (provide 'shortcut-keys-conf)
