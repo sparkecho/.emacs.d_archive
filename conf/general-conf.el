@@ -32,6 +32,11 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; 补全时忽略大小写
+(setq completion-ignore-case  t)
+(setq read-buffer-completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
+
 
 (provide 'general-conf)
 ;;; general-conf.el ends here
