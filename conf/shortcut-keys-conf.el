@@ -136,8 +136,8 @@ Instead of delete completely, move the file to `trash-directory'."
                                  (time-stamp-string "%02y%02m%02d-%02H%02M%02S"))))
         (y-or-n-p "Are you sure to delete this file? ")
         ;; Make sure `trash-directory' exists.
-        (and (file-directory-p trash-directory)
-             (make-directory trash-directory))
+        (or (file-directory-p trash-directory)
+            (make-directory trash-directory))
         (rename-file filename unique-name)
         (delete-file unique-name t)
         (kill-buffer)
