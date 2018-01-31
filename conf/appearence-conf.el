@@ -4,18 +4,30 @@
 
 ;;; Code:
 
-(load-theme 'spacemacs-light t t)
-(enable-theme 'spacemacs-light)
+;; 管理字体
+(require 'cnfonts)
+(cnfonts-enable)
 
-(setq inhibit-startup-message t)        ;关闭欢迎页面
+;; 加载 custom theme 无需确认
+(setq custom-safe-themes t)
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (load-theme 'spacemacs-light t))))
+  (when (display-graphic-p)
+    (load-theme 'spacemacs-light t)))
+
+;; 关闭欢迎页面
+(setq inhibit-startup-message t)
+;; 默认窗口最大化
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (add-hook 'emacs-startup-hook
           (lambda ()
             (cd default-directory)
             (eshell)))
-
-(require 'cnfonts)                      ;管理字体
-(eval-after-load 'cnfonts
-  '(progn (cnfonts-enable)))
 
 (tool-bar-mode   0)                     ;关闭Emacs工具栏
 (scroll-bar-mode 0)                     ;隐藏滚动条
@@ -28,7 +40,7 @@
 
 (mouse-avoidance-mode 'animate)         ;光标靠近鼠标指针时，让鼠标指针自动让开
 
-;; (global-hl-line-mode 1)         ;高亮当前行
+(global-hl-line-mode 1)                 ;高亮当前行
 ;; (require 'hl-spotlight)         ;高亮当前行及附近几行
 ;; (global-hl-spotlight-mode 1)
 
@@ -51,13 +63,12 @@
   (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                          '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
 
-
-;; Highlight active buffer (2018/1/21 -- 23:57)
-(require 'highlight-focus)
-;; set the background of the mode-line
-(setq highlight-focus:face 'mode-line
-      highlight-focus:face-property :background
-      highlight-focus:face-property-value "medium turquoise")
+;; ;; Highlight active buffer (2018/1/21 -- 23:57)
+;; (require 'highlight-focus)
+;; ;; set the background of the mode-line
+;; (setq highlight-focus:face 'mode-line
+;;       highlight-focus:face-property :background
+;;       highlight-focus:face-property-value "medium turquoise")
 
 
 (provide 'appearence-conf)
