@@ -17,7 +17,7 @@
 (yas-global-mode 1)
 
 ;; Saving Emacs Sessions
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 ;; Configured in 2015/9/10  --22:36
 (setq-default indent-tabs-mode  nil)
@@ -37,6 +37,8 @@
 (setq read-buffer-completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
+;; Extend shell-mode
+(add-hook 'shell 'shx-mode)
 
 (provide 'general-conf)
 ;;; general-conf.el ends here
