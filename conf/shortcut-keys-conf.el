@@ -120,6 +120,28 @@
 
 (global-set-key (kbd "C-c r")  'rename-file-and-buffer)
 
+;; Configuration of Delete the file in current buffer
+(setq delete-by-moving-to-trash t)
+(setq trash-directory "~/trash")
+(defun delete-file-and-buffer ()
+  "Delete the current buffer and file it is visiting.
+Instead of delete completely, move the file to `trash-directory'."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer is not visiting a file!")
+      ;; Give the file to delete a unique name with time stamp.
+      (let ((unique-name (format "%s-%s"
+                                 filename
+                                 (time-stamp-string "%02y%02m%02d-%02H%02M%02S"))))
+        (y-or-n-p "Are you sure to delete this file? ")
+        (rename-file filename unique-name)
+        (delete-file unique-name t)
+        (kill-buffer)
+        (message "File `%s' moved to `%s'" unique-name trash-directory)))))
+
+(global-set-key (kbd "C-c d")  'delete-file-and-buffer)
+
 
 (provide 'shortcut-keys-conf)
 ;;; shortcut-keys-conf.el ends here
