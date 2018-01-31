@@ -79,10 +79,6 @@
 ;;             (add-to-list 'ac-stop-words ")")))
 
 
-
-;; Shortcut Key to complete
-;; (global-set-key "\C-c\C-]" 'slime-close-all-parens-in-sexp)
-
 ;;(require 'common-lisp-snippets)		;snippets 补全插件
 (require 'highlight-quoted)
 
