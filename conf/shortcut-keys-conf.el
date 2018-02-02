@@ -123,6 +123,8 @@
 ;; Configuration of Delete the file in current buffer
 (setq delete-by-moving-to-trash t)
 (setq trash-directory "~/trash")
+;; Refresh timestamp, or `time-stamp-string' won't load
+(time-stamp)
 (defun delete-file-and-buffer ()
   "Delete the current buffer and file it is visiting.
 Instead of delete completely, move the file to `trash-directory'."
@@ -141,7 +143,7 @@ Instead of delete completely, move the file to `trash-directory'."
         (rename-file filename unique-name)
         (delete-file unique-name t)
         (kill-buffer)
-        (message "File `%s' moved to `%s'" unique-name trash-directory)))))
+        (message "File `%s' moved to `%s' successfully." unique-name trash-directory)))))
 
 (global-set-key (kbd "C-c d")  'delete-file-and-buffer)
 
