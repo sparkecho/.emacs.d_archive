@@ -1,12 +1,12 @@
-alias lps ps aux|grep -v grep|grep $* #look up process
-alias javac javac -J-Dfile.encoding=utf8 $*
-alias grep grep --color=auto $*
-alias bz2 tar -xjvf $*          #decompress
-alias tgz tar -xzvf $*          #decompress
-alias gz tar -xzvf $*           #decompress
-alias txz tar -xf $*            #decompress
-alias ls /usr/bin/ls --color=auto $*
-alias llh ls -lh $*
-alias ll ls -ll $*
+alias l ls
 alias la ls -a $*
-alias l ls $*
+alias ll ls -ll $*
+alias llh ls -lh $*
+alias ls /usr/bin/ls --color=auto $*
+alias txz tar -xf $*            #decompress
+alias gz tar -xzvf $*           #decompress
+alias tgz tar -xzvf $*          #decompress
+alias bz2 tar -xjvf $*          #decompress
+alias grep grep --color=auto $*
+alias javac javac -J-Dfile.encoding=utf8 $*
+alias lps ps ax -o pid,user,time,comm|grep -v grep|grep $* #look up process
