@@ -30,5 +30,14 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+(setq use-package-expand-minimally t)
+(setq use-package-enable-imenu-support t)
+
+;; Required by `use-package'
+(use-package diminish)
+(use-package bind-key)
+
 (provide 'package-conf)
 ;;; package-conf.el ends here
