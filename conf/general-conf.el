@@ -61,7 +61,8 @@
 ;; Find symbol in all files of this dir
 (global-set-key (kbd "C-c C-s") 'counsel-ag)
 
-;; Extend `switch-buffer' and some others
+;; Use ivy and swiper to extend minibuffer
+;; Reference: https://github.com/zamansky/using-emacs/blob/master/myinit.org
 (use-package ivy
   :ensure t
   :diminish (ivy-mode)
