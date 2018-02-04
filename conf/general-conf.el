@@ -16,7 +16,7 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (add-hook 'c++mode-hook
+  (add-hook 'c++-mode-hook
             (lambda ()
               (use-package company-irony :ensure t :defer t)))
   (setq company-idle-delay             nil
@@ -57,6 +57,35 @@
 
 ;; Extend shell-mode
 (add-hook 'shell 'shx-mode)
+
+;; Find symbol in all files of this dir
+(global-set-key (kbd "C-c C-s") 'counsel-ag)
+
+;; Extend `switch-buffer' and some others
+(use-package ivy
+  :ensure t
+  :diminish (ivy-mode)
+  :bind (("C-x b" . ivy-switch-buffer))
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "%d/%d ")
+  (setq ivy-display-style 'fancy))
+
+(use-package swiper
+  :ensure t
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)
+         ("C-c C-r" . ivy-resume)
+         ("M-x"     . counsel-M-x)
+         ("C-x C-f" . counsel-find-file))
+  :config
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+    ))
 
 (provide 'general-conf)
 ;;; general-conf.el ends here
