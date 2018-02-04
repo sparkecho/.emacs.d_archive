@@ -127,7 +127,7 @@
 ;;   :init
 ;;   (add-hook 'after-init-hook 'global-company-mode)
 ;;   :config
-;;   (add-hook 'c++mode-hook
+;;   (add-hook 'c++-mode-hook
 ;;             (lambda ()
 ;;               (use-package company-irony :ensure t :defer t)))
 ;;   (setq company-idle-delay             nil
