@@ -26,6 +26,7 @@
 (require 'common-lisp-conf)
 (require 'cc-conf)
 (require 'asm-conf)
+(require 'python-conf)
 ;; (require 'smalltalk-conf)
 ;; (require 'scala-conf)
 ;; (require 'javascript-conf)
