@@ -6,6 +6,7 @@
 
 ;;; Reference:
 ;;; https://emacs.cafe/emacs/javascript/setup/2017/04/23/emacs-setup-javascript.html
+;;; https://github.com/zamansky/using-emacs/blob/master/myinit.org#javascript
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)) ;use js2-mode as major mode
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)       ;Better imenu
