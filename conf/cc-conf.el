@@ -15,12 +15,16 @@
 (setq-default indent-tabs-mode nil)
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
+(local-set-key "\C-m" 'reindent-then-newline-and-indent)
+(local-set-key "\C-cc" 'compile)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ECB customize
 ;;; Ref: http://ecb.sourceforge.net/docs/Programming-special-windows.html#Programming-special-windows
 ;;;      http://blog.yxwang.me/2010/02/bind-cscope-to-ecb/
 ;;;      http://ecb.sourceforge.net/docs/Standard-activation.html
+
 (require 'ecb)
 (eval-after-load 'ecb
   '(progn
@@ -73,35 +77,49 @@
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
 
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Completion
-;; (require 'semantic)
 
+;; (require 'semantic)
 ;; (global-semanticdb-minor-mode 1)
 ;; (global-semantic-idle-scheduler-mode 1)
-
 ;; (semantic-mode 1)
-
 ;; (semantic-add-system-include "/usr/include/GL" 'c++-mode)
 ;; (semantic-add-system-include "/usr/include/GLFW" 'c++-mode)
-
 
 ;; ;; (global-set-key "\t" 'company-complete-common)
 ;; ;; (define-key company-mode-map "\t" nil)
 ;; ;; (define-key company-mode-map [(backtab)] 'company-complete-common)
-;; (add-hook 'c++-mode-hook 'company-mode)
-;; (eval-after-load 'company
-;;   '(progn
-;;      (setq company-idle-delay 0.2)
-;;      (add-to-list 'company-backends
-;;                   '(company-irony-c-headers company-irony))))
-;; (add-hook 'c++-mode-hook  'irony-mode)
-;; (add-hook 'c-mode-hook    'irony-mode)
-;; (add-hook 'objc-mode-hook 'irony-mode)
-;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-;; irony-mode
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Auto Completion
+;;; Ref: https://www.youtube.com/watch?v=XeWZfruRu6k
+;;;      http://cachestocaches.com/2015/8/c-completion-emacs/
+
+(use-package company
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'c++-mode-hook 'company-mode)
+  (add-hook 'c-mode-hook 'company-mode)
+  :config
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (setq company-idle-delay            0
+        company-minimum-prefix-length 2
+        company-show-numbers          t
+        company-tooltip-limit         20))
+
+(use-package company-irony
+  :ensure t
+  :defer t
+  :config
+  (require 'company)
+  (add-to-list 'company-backends 'company-irony))
+
 (use-package irony
   :ensure t
   :defer t
@@ -120,25 +138,11 @@
   (add-hook 'irony-mode-hook 'my-irony-mode-hook)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
-;; ;; company-mode
-;; (use-package company
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-company-mode)
-;;   :config
-;;   (add-hook 'c++-mode-hook
-;;             (lambda ()
-;;               (use-package company-irony :ensure t :defer t)))
-;;   (setq company-idle-delay             nil
-;;         company-minimum-prefix-length  2
-;;         company-show-numbers           t
-;;         company-tooltip-limit          20)
-;;   (add-to-list 'company-backends
-;;                '((company-irony company-irony-c-headers))))
+(add-hook 'irony-mode-hook 'irony-eldoc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Code Refactor
+
 ;; (require 'srefactor)
 ;; (require 'srefactor-lisp)
 ;; (define-key c-mode-map   (kbd "C-c RET") 'srefactor-refactor-at-point)
