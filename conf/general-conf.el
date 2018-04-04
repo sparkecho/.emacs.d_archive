@@ -9,22 +9,17 @@
 (add-hook 'prog-mode-hook  #'hs-minor-mode)
 (global-set-key (kbd "M-i") 'hs-toggle-hiding)
 
-;; Company 自动补全
-(use-package company
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
-  :config
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (use-package company-irony :ensure t :defer t)))
-  (setq company-idle-delay             nil
-        company-minimum-prefix-length  2
-        company-show-numbers           t
-        company-tooltip-limit          20)
-  (add-to-list 'company-backends
-               '((company-irony company-irony-c-headers))))
+;; ;; Company 自动补全
+;; (use-package company
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'after-init-hook 'global-company-mode)
+;;   :config
+;;   (setq company-idle-delay             nil
+;;         company-minimum-prefix-length  2
+;;         company-show-numbers           t
+;;         company-tooltip-limit          20))
 
 
 ;; Flycheck 词法检查
