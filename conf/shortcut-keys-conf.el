@@ -147,6 +147,8 @@ Instead of delete completely, move the file to `trash-directory'."
 
 (global-set-key (kbd "C-c d")  'delete-file-and-buffer)
 
+;; Use package `bing-dict' for translation
+(global-set-key (kbd "C-c t") 'bing-dict-brief)
 
 (provide 'shortcut-keys-conf)
 ;;; shortcut-keys-conf.el ends here
