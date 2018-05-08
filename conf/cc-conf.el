@@ -69,7 +69,7 @@
 (flycheck-mode t)
 
 ;; Donot use clang as checker
-(setq-default flycheck-disabled-checkers '(c/c++-clang))
+;; (setq-default flycheck-disabled-checkers '(c/c++-clang))
 
 ;; Set C++ standard version
 ;; Directory variable can do the same thing as well.
