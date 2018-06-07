@@ -75,6 +75,12 @@
 ;; Directory variable can do the same thing as well.
 ;; https://stackoverflow.com/questions/30949847/configuring-flycheck-to-work-with-c11
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+(setq flycheck-clang-include-path '("/opt/cuda/include"
+                                    "/usr/include/qt"
+                                    "/usr/include/qt/QtCore"
+                                    "/usr/include/qt/QtGui"
+                                    "/usr/include/qt/QtWidgets"))
+;; (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -139,6 +145,8 @@
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 (add-hook 'irony-mode-hook 'irony-eldoc)
+
+(add-hook 'glsl-mode-hook '(lambda () (setq irony-mode nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Code Refactor
