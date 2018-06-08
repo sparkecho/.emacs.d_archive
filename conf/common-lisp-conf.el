@@ -26,7 +26,14 @@
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy
                slime-media
+               slime-indentation
                slime-sbcl-exts))
+
+;; Set indentation style
+;; https://emacs.stackexchange.com/questions/30788/why-does-emacs-indent-my-lisp-loop-construct-weirdly
+(setq lisp-indent-function 'common-lisp-indent-function)
+(setq common-lisp-style "sbcl")
+
 (defvar slime-enable-evaluate-in-emacs t)	;needed to display images
 ;; test image types support (ielm mode run)
 ;; (mapcar #'(lambda (type)
@@ -37,6 +44,11 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq slime-enable-evaluate-in-emacs t)
 
+(defun slime-enable-concurrent-hints ()
+  "Make Emacs show hints when live coding."
+  (interactive)
+  (setf slime-inhibit-pipelining nil))
+(slime-enable-concurrent-hints)
 
 (eval-after-load 'slime
   '(progn
