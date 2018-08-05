@@ -32,7 +32,7 @@
 ;; Set indentation style
 ;; https://emacs.stackexchange.com/questions/30788/why-does-emacs-indent-my-lisp-loop-construct-weirdly
 (setq lisp-indent-function 'common-lisp-indent-function)
-(setq common-lisp-style "sbcl")
+(common-lisp-set-style "sbcl")
 
 (defvar slime-enable-evaluate-in-emacs t)	;needed to display images
 ;; test image types support (ielm mode run)
