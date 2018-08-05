@@ -54,7 +54,7 @@
 (add-hook 'shell 'shx-mode)
 
 ;; Find symbol in all files of this dir
-(global-set-key (kbd "C-c C-s") 'counsel-ag)
+(global-set-key (kbd "C-c s") 'counsel-ag)
 
 ;; Use ivy and swiper to extend minibuffer
 ;; Reference: https://github.com/zamansky/using-emacs/blob/master/myinit.org
