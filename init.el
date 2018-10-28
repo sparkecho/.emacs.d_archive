@@ -21,17 +21,18 @@
 (require 'gdb-conf)
 (require 'markdown-conf)
 (require 'org-conf)
+(require 'term-conf)
 
 ;; Programming
 (require 'common-lisp-conf)
 (require 'cc-conf)
-(require 'asm-conf)
 (require 'python-conf)
-;; (require 'smalltalk-conf)
+;; (require 'asm-conf)
 ;; (require 'scala-conf)
-;; (require 'javascript-conf)
+;; (require 'auctex-conf)
 ;; (require 'octave-conf)
-(require 'auctex-conf)
+;; (require 'smalltalk-conf)
+;; (require 'javascript-conf)
 
 ;; Others
 ;; (require 'auto-complete-conf)
@@ -43,6 +44,6 @@
 ;; 一些设置直接写入了 helm-mode.el 中
 ;; M-x helm-mode 启动 helm-mode 即可加载
 ;; (require 'helm-conf)
-
+(emacs-init-time)
 
 ;;; init.el ends here

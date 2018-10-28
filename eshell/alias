@@ -2,7 +2,7 @@ alias l ls
 alias la ls -a $*
 alias ll ls -ll $*
 alias llh ls -lh $*
-alias ls /usr/bin/ls --color=auto $*
+# alias ls /usr/bin/ls --color=auto $*
 alias txz tar -xf $*            #decompress
 alias gz tar -xzvf $*           #decompress
 alias tgz tar -xzvf $*          #decompress

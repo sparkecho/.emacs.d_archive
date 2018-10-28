@@ -22,6 +22,13 @@
     (ecl   ("/usr/bin/ecl"))))
 ;; (clisp ("/usr/bin/clisp"))))
 
+;; (require 'slime)
+;; (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'slime-lisp-mode-hook
+          (lambda ()
+            (with-current-buffer (get-buffer "*inferior-lisp*")
+              (inferior-lisp-mode))))
+
 ;; 启动加载
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy
@@ -41,7 +48,7 @@
 ;; 	image-types)
 
 ;; Image Setting
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq slime-enable-evaluate-in-emacs t)
 
 (defun slime-enable-concurrent-hints ()
@@ -52,9 +59,9 @@
 
 (eval-after-load 'slime
   '(progn
-     (define-key slime-mode-map (kbd "C-c s") #'slime-selector)
+     (define-key slime-mode-map (kbd "C-c C-s") #'slime-selector)
      (define-key slime-mode-map (kbd "C-c C-]") #'slime-close-all-parens-in-sexp)
-     (define-key slime-repl-mode-map (kbd "C-c s") #'slime-selector)
+     (define-key slime-repl-mode-map (kbd "C-c C-s") #'slime-selector)
      (define-key slime-repl-mode-map (kbd "C-c C-]") #'slime-close-all-parens-in-sexp)))
 
 ;;; Auto Complete

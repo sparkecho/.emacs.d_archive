@@ -24,15 +24,22 @@
 ;; 默认窗口最大化
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (cd default-directory)
-            (eshell)))
+;; start a eshell at startup
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;;             (cd default-directory)
+;;             (eshell)))
 
 (tool-bar-mode   0)                     ;关闭Emacs工具栏
 (scroll-bar-mode 0)                     ;隐藏滚动条
 (menu-bar-mode   0)                     ;关闭Emacs菜单栏
+(blink-cursor-mode 0)                   ;使光标不闪烁
 (toggle-frame-maximized)                ;窗口最大化
+(use-package powerline
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'prog-mode-hook #'powerline-default-theme))
 
 (global-linum-mode  t)                  ;全局显示行号
 (column-number-mode t)                  ;显示列号

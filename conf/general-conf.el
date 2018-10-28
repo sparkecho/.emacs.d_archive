@@ -83,5 +83,25 @@
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
     ))
 
+;; (require 'cl-lib)
+;; (defun string-suffix-p (str1 str2 &optional ignore-case)
+;;   "STR1 STR2 IGNORE-CASE."
+;;   (let ((begin2 (- (length str2) (length str1)))
+;;         (end2 (length str2)))
+;;     (when (< begin2 0) (setq begin2 0))
+;;     (eq t (compare-strings str1 nil nil str1 begin2 end2 ignore-case))))
+;; (defun my-file-match (str)
+;;   "STR."
+;;   (and (not (cl-remove-if-not (lambda (x) (string-suffix-p x str))
+;;                               completion-ignored-extensions))
+;;        (not (string-prefix-p "." str))))
+;; (defadvice completion-file-name-table (after ignoring-backups-f-n-completion activate)
+;;   (when (and (listp ad-return-value)
+;;              (stringp (car ad-return-value))
+;;              (cdr ad-return-value))
+;;     (let ((newlis (cl-remove-if-not 'my-file-match ad-return-value)))
+;;       (when (and (listp newlis) (cdr newlis))
+;;         (setq ad-return-value newlis)))))
+
 (provide 'general-conf)
 ;;; general-conf.el ends here
