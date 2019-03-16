@@ -15,9 +15,9 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'spacemacs-light t))))
+                  (load-theme 'material t))))
   (when (display-graphic-p)
-    (load-theme 'spacemacs-light t)))
+    (load-theme 'material t)))
 
 ;; 关闭欢迎页面
 (setq inhibit-startup-message t)
@@ -41,7 +41,7 @@
   :init
   (add-hook 'prog-mode-hook #'powerline-default-theme))
 
-(global-linum-mode  t)                  ;全局显示行号
+;; (global-linum-mode  t)                  ;全局显示行号
 (column-number-mode t)                  ;显示列号
 (show-paren-mode    t)                  ;显示括号匹配
 
@@ -50,6 +50,9 @@
 (global-hl-line-mode 1)                 ;高亮当前行
 ;; (require 'hl-spotlight)         ;高亮当前行及附近几行
 ;; (global-hl-spotlight-mode 1)
+
+;; mini-buffer
+(setq echo-keystrokes .1)
 
 ;; 窗口半透明 (2016/4/30 -- 14:29)
 (defvar alpha-list '((100 100) (85 55)))

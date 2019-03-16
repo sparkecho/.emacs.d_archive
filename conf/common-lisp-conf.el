@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; Appearence
+(add-hook 'lisp-mode-hook 'linum-mode)
+
 ;; Single Lisp 单一 Lisp
 ;; Location of Common Lisp implementations
 ;; (setq inferior-lisp-program "/usr/local/bin/sbcl")       ;Location of SBCL

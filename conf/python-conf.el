@@ -3,6 +3,10 @@
 ;;; Added at 2018/2/26 -- 22:15
 
 ;;; Code:
+
+;; Appearence
+(add-hook 'python-mode-hook 'linum-mode)
+
 (use-package elpy
   :ensure t
   :defer t
@@ -24,7 +28,7 @@
   (setq highlight-indent-guides-method 'character))
 
 ;; (setq python-shell-interpreter "/opt/anaconda/bin/python3.6")
-(setq python-shell-interpreter "ipython")
+;; (setq python-shell-interpreter "ipython")
 
 (provide 'python-conf)
 ;;; python-conf.el ends here

@@ -13,7 +13,7 @@
 
 (setq inhibit-startup-message t)        ;关闭欢迎页面
 (menu-bar-mode   0)                     ;关闭Emacs菜单栏
-(global-linum-mode  t)                  ;全局显示行号
+;; (global-linum-mode  t)                  ;全局显示行号
 (column-number-mode t)                  ;显示列号
 (show-paren-mode    t)                  ;显示括号匹配
 (global-hl-line-mode 1)                 ;高亮当前行

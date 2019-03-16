@@ -17,8 +17,8 @@
             (term-set-escape-char ?\C-x)
             ;; disable linum-mode in terms
             (add-hook 'after-change-major-mode-hook
-                      (lambda () (linum-mode nil))
-                      :append :local)
+                      (lambda () (linum-mode 0))
+                      :local)
             (setq-local global-hl-line-mode nil)
             (define-key term-raw-map  (kbd "M-x") 'counsel-M-x)
             (define-key term-raw-map  (kbd "M-:") 'eval-expression)

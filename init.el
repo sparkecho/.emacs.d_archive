@@ -24,8 +24,9 @@
 (require 'term-conf)
 
 ;; Programming
-(require 'common-lisp-conf)
 (require 'cc-conf)
+(require 'common-lisp-conf)
+(require 'elisp-conf)
 (require 'python-conf)
 ;; (require 'asm-conf)
 ;; (require 'scala-conf)

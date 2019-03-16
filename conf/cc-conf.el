@@ -5,6 +5,10 @@
 ;;; Code:
 
 
+;; Appearence
+(add-hook 'c-mode-hook 'linum-mode)
+(add-hook 'c++-mode-hook 'linum-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; 缩进调整
 
@@ -136,6 +140,7 @@
   (add-hook 'c-mode-hook    'irony-mode)
   (add-hook 'objc-mode-hook 'irony-mode)
   :config
+  (add-to-list 'irony-supported-major-modes 'glsl-mode)
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
   (defun my-irony-mode-hook ()
@@ -148,7 +153,7 @@
 
 (add-hook 'irony-mode-hook 'irony-eldoc)
 
-(add-hook 'glsl-mode-hook '(lambda () (setq irony-mode nil)))
+;; (add-hook 'glsl-mode-hook '(lambda () (setq irony-mode nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Code Refactor
@@ -158,6 +163,35 @@
 ;; (define-key c-mode-map   (kbd "C-c RET") 'srefactor-refactor-at-point)
 ;; (define-key c++-mode-map (kbd "C-c RET") 'srefactor-refactor-at-point)
 
+;; (defun run-clang-format ()
+;;   "Run clang-format on c,cpp,h,hpp files in current dir and reverts buffer."
+;;   (interactive)
+;;   (and
+;;    (string-match "*\\.\\(h\\|hpp\\|c\\|cpp\\)$" buffer-file-name)
+;;    (save-some-buffers 'no-confirm)
+;;    (shell-command (concat "clang-format -style=file -i " buffer-file-name))
+;;    (message (concat "Saved and ran clang-format on " buffer-file-name))
+;;    (revert-buffer t t t)))
+
+;; (local-set-key "\M-q" 'run-clang-format)
+
+;; clang-format
+(defun clang-format-region (pmin pmax)
+  "Run clang-format command in selected region(`PMIN', `PMAX')."
+  (interactive "r")
+  (shell-command-on-region pmin pmax
+                           "clang-format -style=file"
+                           (current-buffer)
+                           t
+                           (get-buffer-create "*clang-format error messages*")
+                           t))
+
+(defun clang-format ()
+  "Run clang-format in the whole buffer."
+  (clang-format-region (point-min) (point-max)))
+
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "M-q") 'clang-format-region)))
+(add-hook 'c++-mode-hook (lambda () (local-set-key (kbd "M-q") 'clang-format-region)))
 
 (provide 'cc-conf)
 ;;; cc-conf.el ends here
