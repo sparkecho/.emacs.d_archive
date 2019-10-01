@@ -56,6 +56,23 @@
 ;; Find symbol in all files of this dir
 (global-set-key (kbd "C-c s") 'counsel-ag)
 
+
+;; ref: isearch-forward-symbol-at-point [M-s .]
+(defun swiper-forward-symbol-at-point ()
+  "Do incremental search forward for a symbol found near point.
+Like ordinary incremental search except that the symbol found at point
+is added to the search string initially as a regexp surrounded
+by symbol boundary constructs \\_< and \\_>.
+See the command `isearch-forward-symbol' for more information."
+  (interactive)
+  (let ((bounds (find-tag-default-bounds)))
+    (cond
+      (bounds (when (< (car bounds) (point))
+	            (goto-char (car bounds)))
+              (swiper (buffer-substring-no-properties (car bounds) (cdr bounds))))
+      (t (error "[No symbol at point]")))))
+
+
 ;; Use ivy and swiper to extend minibuffer
 ;; Reference: https://github.com/zamansky/using-emacs/blob/master/myinit.org
 (use-package ivy
@@ -74,7 +91,8 @@
          ("C-r" . swiper)
          ("C-c C-r" . ivy-resume)
          ("M-x"     . counsel-M-x)
-         ("C-x C-f" . counsel-find-file))
+         ("C-x C-f" . counsel-find-file)
+         ("M-s ." . swiper-forward-symbol-at-point))
   :config
   (progn
     (ivy-mode 1)
